@@ -66,13 +66,12 @@
                     include('control.php');
                     $get = new data();
                     $select_about = $get->select_blog();
-                    $id_blog = 1;
                     foreach ($select_about as $se_about) {
                     ?>
                         <div class="row blog-item m-0 mb-4 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="col-md-5 col-lg-12 col-xl-5 p-0" style="min-height: 300px;">
                                 <div class="position-relative overflow-hidden h-100">
-                                    <img class="position-absolute w-100 h-100" src="img/<?php echo $se_about['anh1'] ?>" alt style="object-fit: cover;">
+                                    <img class="position-absolute w-100 h-100" src="/hotelier/resources/img/blog/<?php echo $se_about['anh1'] ?>" alt style="object-fit: cover;">
                                 </div>
                             </div>
                             <div class="col-md-7 col-lg-12 col-xl-7 h-100 px-0">
@@ -90,7 +89,7 @@
                                     <h5 class="lh-base mb-0"><?php echo $se_about['ten_blog'] ?></h5>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between border-top mt-auto p-4">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-3" href="blog-details.php?id=<?php echo $id_blog ?>">Read More</a>
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-3" href="blog-details.php?id=<?php echo $se_about['id_blog'] ?>">Read More</a>
                                     <div class="me-n1">
                                         <span class="me-1">Share:</span>
                                         <a class="mx-1" href><i class="fab fa-twitter"></i></a>
@@ -101,7 +100,6 @@
                             </div>
                         </div>
                     <?php
-                    $id_blog++;
                     }
                     ?>
                         <!-- page switch button Start -->

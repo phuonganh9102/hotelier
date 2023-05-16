@@ -1,4 +1,3 @@
-
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
@@ -7,18 +6,46 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
+    <li class="nav-item nav-category">Quản lý Blog</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#blog" aria-expanded="false" aria-controls="blog">
+        <i class="menu-icon mdi mdi-floor-plan"></i>
+        <span class="menu-title">Blogs</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="blog">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/blog/add-blog.php">Thêm 1 blog</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/blog/all-blog.php">Danh sách blog</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item nav-category">Quản lý phòng</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#room" aria-expanded="false" aria-controls="room">
+        <i class="menu-icon mdi mdi-floor-plan"></i>
+        <span class="menu-title">Quản lý phòng</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="room">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/room/add-room.php">Thêm phòng</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/room/all-room.php">Danh sách phòng</a></li>
+        </ul>
+      </div>
+    </li>
     <li class="nav-item nav-category">UI Elements</li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
         <i class="menu-icon mdi mdi-floor-plan"></i>
         <span class="menu-title">UI Elements</span>
-        <i class="menu-arrow"></i> 
+        <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="ui-basic">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/ui-features/buttons.html">Buttons</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/ui-features/dropdowns.html">Dropdowns</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/ui-features/typography.html">Typography</a></li>
         </ul>
       </div>
     </li>
@@ -31,7 +58,7 @@
       </a>
       <div class="collapse" id="form-elements">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+          <li class="nav-item"><a class="nav-link" href="/hotelier/admin/pages/forms/basic_elements.html">Basic Elements</a></li>
         </ul>
       </div>
     </li>
@@ -43,7 +70,7 @@
       </a>
       <div class="collapse" id="charts">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/charts/chartjs.html">ChartJs</a></li>
         </ul>
       </div>
     </li>
@@ -55,7 +82,7 @@
       </a>
       <div class="collapse" id="tables">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/tables/basic-table.html">Basic table</a></li>
         </ul>
       </div>
     </li>
@@ -67,7 +94,7 @@
       </a>
       <div class="collapse" id="icons">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/icons/mdi.html">Mdi icons</a></li>
         </ul>
       </div>
     </li>
@@ -80,7 +107,7 @@
       </a>
       <div class="collapse" id="auth">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+          <li class="nav-item"> <a class="nav-link" href="/hotelier/admin/pages/samples/login.html"> Login </a></li>
         </ul>
       </div>
     </li>

@@ -2,19 +2,40 @@
 include('connect.php');
 class data
 {
-    function insert_about($name, $picture, $description, $desful)
-    {
-        global $conn;
-        $sql = "insert into about(name,picture,des,deslong) values ('$name','$picture','$description','$desful')";
-        $run = mysqli_query($conn, $sql); // hàm thực thi lệnh sql
-        return $run; // trả về KQ thực thi được hay không
-    }
     function select_blog()
     {
         global $conn;
         $sql = "SELECT blog.*, anh1 FROM blog ".
         "inner join blog_hinhanh on blog_hinhanh.id_blog = blog.id_blog ".
         "inner join hinhanhblog on hinhanhblog.id_hinhanh = blog_hinhanh.id_hinhanh";
+        $run = mysqli_query($conn, $sql);
+        return $run;
+    }
+    function select_room()
+    {
+        global $conn;
+        $sql = "SELECT phong.*, anh1 FROM phong ".
+        "inner join phong_hinhanh on phong_hinhanh.id_phong = phong.id_phong ".
+        "inner join hinhanh on hinhanh.id_hinhanh = phong_hinhanh.id_hinhanh";
+        $run = mysqli_query($conn, $sql);
+        return $run;
+    }
+    function select_room_limit3()
+    {
+        global $conn;
+        $sql = "SELECT phong.*, anh1 FROM phong ".
+        "inner join phong_hinhanh on phong_hinhanh.id_phong = phong.id_phong ".
+        "inner join hinhanh on hinhanh.id_hinhanh = phong_hinhanh.id_hinhanh LIMIT 3";
+        $run = mysqli_query($conn, $sql);
+        return $run; 
+    }
+    function select_room_id($id_phong)
+    {
+        global $conn;
+        $sql = "SELECT phong.*, hinhanh.* FROM phong ".
+        "inner join phong_hinhanh on phong_hinhanh.id_phong = phong.id_phong ".
+        "inner join hinhanh on hinhanh.id_hinhanh = phong_hinhanh.id_hinhanh ".
+        "where phong.id_phong = $id_phong";
         $run = mysqli_query($conn, $sql);
         return $run;
     }
