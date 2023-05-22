@@ -151,15 +151,13 @@
                                         if (isset($_POST['may_giat'])) $may_giat = 1; else $may_giat = 0;
                                         if (isset($_POST['bua_toi'])) $bua_toi = 1; else $bua_toi = 0;
 
-                                        echo "<script>alert('wifi $wifi tv $tv dieu_hoa $dieu_hoa may_giat $may_giat bua_toi $bua_toi')</script>";
-                                        
                                         $insert = $get_data->insert_phong($_POST['ten_phong'], $_POST['gia'], $_POST['mo_ta'], $_POST['giuong'], $_POST['bon_tam'], $wifi, $tv, $dieu_hoa, $may_giat, $bua_toi, $_FILES['anh1']['name'], $_FILES['anh2']['name'], $_FILES['anh3']['name'], $_FILES['anh4']['name']);
 
-                                        // if ($insert) {
-                                        //     echo "<script>alert('Thêm mới thành công')</script>";
-                                        // } else {
-                                        //     echo "<script>alert('Không thực hiện được')</script>";
-                                        // }
+                                        if ($insert) {
+                                            echo "<script>alert('Thêm mới thành công')</script>";
+                                        } else {
+                                            echo "<script>alert('Không thực hiện được')</script>";
+                                        }
                                     }
                                     ?>
                                 </div>

@@ -127,7 +127,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="edit-room.php?id=<?php echo $se_room['id_phong'] ?>" class="btn btn-secondary">Edit</a>
-                                                    <a data-href="delete.asp?id=<?php echo $se_room['id_phong'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-delete" title="Delete">Delete</a>
+                                                    <a href="delete-room.php?id=<?php echo $se_room['id_phong'] ?>" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php

@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+    session_start();
+    $id_phong = $_REQUEST['id'];
+    if (empty($_SESSION['id_khachhang'])) {
+        echo "<script>alert('Vui lòng đăng nhập để tiếp tục!')</script>";
+        // header("Location: ./login.php");
+        echo "<script>window.location.href='login.php';</script>";
+    }
+?>
 <head>
     <meta charset="utf-8">
     <title>Hotelier - Hotel HTML Template</title>
@@ -83,73 +91,107 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <form>
+                            <?php 
+                            if (isset($_REQUEST['checkin']) && isset($_REQUEST['checkout'])) {
+                                $checkin = $_REQUEST['checkin'];
+                                $checkout = $_REQUEST['checkout'];
+                            } else {
+                                $checkin = "";
+                                $checkout = "";
+                            }
+                            include('control.php');
+                            $get = new data();
+                            $select_room_id = $get->select_room_id($id_phong);
+                            foreach ($select_room_id as $se_room) {
+                            ?>
+                            <form method="POST" action="" enctype="multipart/form-data">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
+                                            <input value="$<?php echo $se_room['gia'] ?>.00" readonly type="text" class="form-control" id="gia" placeholder="Your gia">
+                                            <label for="gia">Giá phòng</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                            <label for="email">Your Email</label>
+                                            <input value="<?php echo $se_room['ten_phong'] ?>" readonly type="text" class="form-control" id="ten_phong" placeholder="Your ten_phong">
+                                            <label for="ten_phong">Tên phòng</label>
+                                        </div>
+                                    </div> 
+                                    <?php 
+                                    $insert = $get->select_khachhang_id($_SESSION['id_khachhang']);
+                                    foreach($insert as $in) {
+                                    ?>                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input readonly name="nguoi_lon" value="<?php echo $in['ho_ten'] ?>" type="text" class="form-control" id="nguoilon" placeholder="Số lượng người lớn"/>
+                                            <label for="nguoilon">Tên khách hàng</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input readonly name="tre_con" value="<?php echo $in['email'] ?>" type="text" class="form-control" id="trecon" placeholder="Số lượng trẻ nhỏ"/>
+                                            <label for="trecon">Email</label>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <div class="col-md-6">
                                         <div class="form-floating date" id="date3" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
+                                            <input name="checkin"  value="<?php echo $checkin ?>" type="date" class="form-control datetimepicker-input" id="checkin" placeholder="Check In"  />
                                             <label for="checkin">Check In</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating date" id="date4" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" />
+                                            <input name="checkout"  value="<?php echo $checkout ?>" type="date" class="form-control datetimepicker-input" id="checkout" placeholder="Check Out"  />
                                             <label for="checkout">Check Out</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-12">
                                         <div class="form-floating">
-                                            <select class="form-select" id="select1">
-                                                <option value="1">Adult 1</option>
-                                                <option value="2">Adult 2</option>
-                                                <option value="3">Adult 3</option>
-                                            </select>
-                                            <label for="select1">Select Adult</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <select class="form-select" id="select2">
-                                                <option value="1">Child 1</option>
-                                                <option value="2">Child 2</option>
-                                                <option value="3">Child 3</option>
-                                            </select>
-                                            <label for="select2">Select Child</label>
+                                            <textarea name="yeu_cau" class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                            <label for="message">Yêu cầu đặc biệt</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="form-floating">
-                                            <select class="form-select" id="select3">
-                                                <option value="1">Room 1</option>
-                                                <option value="2">Room 2</option>
-                                                <option value="3">Room 3</option>
-                                            </select>
-                                            <label for="select3">Select A Room</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                            <label for="message">Special Request</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                        <button name="submit" class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
                                     </div>
                                 </div>
                             </form>
+                            <?php 
+                            }
+                            ?> 
+                            <!-- Xử lý đặt phòng -->
+                            <?php 
+                            if (isset($_POST['submit'])) // thực thi sau khi nhấn nút submit
+                                {
+                                    // $ten_khachhang, $email, $checkin, $checkout, $soluong_nguoilon, $soluong_trecon, $yeu_cau, $id_phong
+                                    if (!empty($_POST['yeu_cau'])) {
+                                        $yeu_cau = $_POST['yeu_cau'];
+                                    } else {
+                                        $yeu_cau = "Không có";
+                                    }
+                                    $select = $get->select_id_dondathang();
+                                    foreach($select as $se) {
+                                        $id_don_dat_phong = $se['id'];
+                                    }
+                                    if (empty($id_don_dat_phong)) {
+                                        $id_don_dat_phong = 1;
+                                    }
+                                    $_SESSION['id_don_dat_phong'] = $id_don_dat_phong;
+
+                                    $insert = $get->book_room($id_don_dat_phong, $id_phong, $_SESSION['id_khachhang'], $_POST['checkin'], $_POST['checkout'], $yeu_cau);
+                                    
+                                    if ($insert) { 
+                                        echo "<script>alert('Đặt phòng thành công')</script>";
+                                        echo "<script>window.location.href='booking-success.php';</script>";
+                                            exit;
+                                    } else
+                                        echo "<script>alert('Không thực hiện được')</script>";
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+  session_start();
+  if (empty($_SESSION['admin'])) {
+      echo "<script>alert('Vui lòng đăng nhập để tiếp tục!')</script>";
+      // header("Location: ./login.php");
+      echo "<script>window.location.href='login.php';</script>";
+  }
+?>
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -805,6 +812,7 @@
   <script src="js/settings.js"></script>
   <script src="js/todolist.js"></script>
   <!-- endinject -->
+
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>

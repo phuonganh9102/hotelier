@@ -1,10 +1,10 @@
 // Alert Redirect to Another Link
 $(document).on('click', '#link', function(e) {
     swal({
-        title: "You want to sign out?", 
-        text: "You will be redirected to login page", 
+        title: "Bạn muốn đăng xuất?", 
+        text: "Bạn sẽ được chuyển hướng tới trang đăng nhập", 
         type: "warning",
-        confirmButtonText: "Log out",
+        confirmButtonText: "Đăng xuất",
         showCancelButton: true
     })
         .then((result) => {
@@ -12,8 +12,28 @@ $(document).on('click', '#link', function(e) {
                 window.location = './logout.asp';
             } else if (result.dismiss === 'cancel') {
                 swal(
-                  'Cancelled',
-                  'Your stay here :)',
+                  'Đã hủy',
+                  'Bạn đã ở lại :)',
+                  'error'
+                )
+            }
+        })
+  });
+$(document).on('click', '#delete', function(e) {
+    swal({
+        title: "Bạn muốn đăng xuất?", 
+        text: "Bạn sẽ được chuyển hướng tới trang đăng nhập", 
+        type: "warning",
+        confirmButtonText: "Đăng xuất",
+        showCancelButton: true
+    })
+        .then((result) => {
+            if (result.value) {
+                window.location = './logout.asp';
+            } else if (result.dismiss === 'cancel') {
+                swal(
+                  'Đã hủy',
+                  'Bạn đã ở lại :)',
                   'error'
                 )
             }

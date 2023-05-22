@@ -112,7 +112,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="edit-blog.php?id=<?php echo $se_blog['id_blog'] ?>" class="btn btn-secondary">Edit</a>
-                                                    <a data-href="delete.asp?id=<?php echo $se_blog['id_blog'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-delete" title="Delete">Delete</a>
+                                                    <a href="delete-blog.php?id=<?php echo $se_blog['id_blog'] ?>" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-
+                                            
                 <?php include '../../partials/_footer.php'; ?>
             </div>
             <!-- main-panel ends -->

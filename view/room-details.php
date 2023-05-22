@@ -344,43 +344,39 @@ $id_phong = $_REQUEST['id_phong'];
                                     <span class="align-middle fs-1 lh-sm fw-bold"><?php echo $se_room['gia'] ?>.00</span>
                                     <span class="align-bottom fs-6 lh-lg">/ Night</span>
                                 </div>
-                                <form action="./booking.php" class="row g-3 p-4 pt-2">
+                                <form method="post" action="./booking.php?id=<?php echo $se_room['id_phong'] ?>" class="row g-3 p-4 pt-2">
                                     <div class="col-12">
                                         <div class="date" id="date3" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" placeholder="Check in" data-target="#date3" data-toggle="datetimepicker" />
+                                            <input name="checkin" type="text" class="form-control datetimepicker-input" placeholder="Check in" data-target="#date3" data-toggle="datetimepicker" />
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="date" id="date4" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" placeholder="Check out" data-target="#date4" data-toggle="datetimepicker" />
+                                            <input name="checkout" type="text" class="form-control datetimepicker-input" placeholder="Check out" data-target="#date4" data-toggle="datetimepicker" />
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <select class="form-select">
-                                            <option selected>Adult</option>
+                                    <!-- <div class="col-12">
+                                        <select name="nguoi_lon" class="form-select">
+                                            <option selected>Người lớn</option>
                                             <option value="1">Adult 1</option>
                                             <option value="2">Adult 2</option>
                                             <option value="3">Adult 3</option>
                                         </select>
                                     </div>
                                     <div class="col-12">
-                                        <select class="form-select">
-                                            <option selected>Child</option>
-                                            <option value="1">Child 1</option>
-                                            <option value="2">Child 2</option>
-                                            <option value="3">Child 3</option>
+                                        <select name="tre_con" class="form-select">
+                                            <option selected>Trẻ nhỏ</option>
+                                            <option value="1">Không</option>
                                         </select>
                                     </div>
                                     <div class="col-12">
-                                        <select class="form-select">
+                                        <select name="so_ngay_thue" class="form-select">
                                             <option selected>Night</option>
-                                            <option value="1">Night 1</option>
-                                            <option value="2">Night 2</option>
-                                            <option value="3">Night 3</option>
+                                            <option value="1">all day</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12">
-                                        <button class="btn btn-primary py-3 w-100">Book Now</button>
+                                        <button type="submit" class="btn btn-primary py-3 w-100">Book Now</button>
                                     </div>
                                 </form>
                             </div>

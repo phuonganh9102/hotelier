@@ -180,7 +180,6 @@ $id_phong = $_REQUEST['id'];
                                         }
                                         $insert = $gets->edit_room($id_phong, $_POST['id_hinhanh'], $_POST['ten_phong'], $_POST['gia'], $_POST['mo_ta'], $_POST['giuong'], $_POST['bon_tam'], $_POST['wifi'], $_POST['tv'], $_POST['dieu_hoa'], $_POST['may_giat'], $_POST['bua_toi'], $anh1, $anh2, $anh3, $anh4);
                                         
-                                        
                                         if ($insert) { 
                                             echo "<script>alert('Sửa thành công')</script>";
                                             echo "<script>window.location.href='all-room.php';</script>";

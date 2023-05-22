@@ -10,11 +10,11 @@
                 <div class="col-lg-7 px-5 text-start">
                     <div class="h-100 d-inline-flex align-items-center py-2 me-4">
                         <i class="fa fa-envelope text-primary me-2"></i>
-                        <p class="mb-0">info@example.com</p>
+                        <p class="mb-0">phuonganh9102@gmail.com</p>
                     </div>
                     <div class="h-100 d-inline-flex align-items-center py-2">
                         <i class="fa fa-phone-alt text-primary me-2"></i>
-                        <p class="mb-0">+012 345 6789</p>
+                        <p class="mb-0">+84 39 39 66 425</p>
                     </div>
                 </div>
                 <div class="col-lg-5 px-5 text-end">
@@ -39,18 +39,23 @@
                         <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="blog.php" class="nav-item nav-link">Blog</a>
                         <a href="service.php" class="nav-item nav-link">Services</a>
-                        <a href="room.php" class="nav-item nav-link active">Rooms</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="booking.php" class="dropdown-item">Booking</a>
-                                <a href="team.php" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.php" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
+                        <a href="room.php" class="nav-item nav-link">Rooms</a>
+                        <a href="team.php" class="nav-item nav-link">Our Team</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="#" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
+                    <div style="display: flex;">
+                    <?php if (empty($_SESSION['username'])) {
+                    ?>
+                        <a href="./login.php" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Đăng nhập<i class="fa fa-arrow-right ms-3"></i></a>
+                        <?php
+                    } else {
+                    // echo "<script>alert('".$_SESSION['username']."')</script>"
+                    ?>
+                    
+                    <a href="#" class="nav-item nav-link" style=" display: block; line-height: 52px;">Xin chào <?php echo $_SESSION['username'] ?></a>
+                    <a href="./logout.php" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">THOÁT</a>
+                    <?php } ?>
+                    </div>
                 </div>
             </nav>
         </div>

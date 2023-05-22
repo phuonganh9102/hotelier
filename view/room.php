@@ -120,7 +120,15 @@
                                 <p class="text-body mb-3"><?php echo $se_room['mo_ta'] ?></p>
                                 <div class="d-flex justify-content-between">
                                     <a class="btn btn-sm btn-primary rounded py-2 px-4" href="./room-details.php?id_phong=<?php echo $se_room['id_phong'] ?>">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <?php if($se_room['trang_thai'] == '1') { ?>
+                                        <a class="btn btn-sm btn-dark rounded py-2 px-4" href="booking.php?id=<?php echo $se_room['id_phong'] ?>">Book Now</a>
+                                    <?php 
+                                    } else { 
+                                    ?>
+                                        <a class="btn btn-sm btn-dark rounded py-2 px-4">Booked</a>
+                                    <?php 
+                                    } 
+                                    ?>
                                 </div>
                             </div>
                         </div>

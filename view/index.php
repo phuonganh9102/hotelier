@@ -1,5 +1,7 @@
 <?php
 session_start();
+// echo "<script>alert('".$_SESSION['username']."')</script>"
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
